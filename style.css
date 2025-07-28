@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fcd1f8;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  overflow-x: hidden;
+}
+
+.banner {
+  background: url("img/laut.jpg") no-repeat center center;
+  background-size: cover;
+  padding-top: 20%;
+  padding-bottom: 20%;
+  color: rgb(247, 172, 245);
+}
+
+.lingkaran {
+  display: inline-block;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  background-color: blanchedalmond;
+  color: rgb(109, 109, 27);
+  position: relative;
+  top: 30px;
+}
+
+.crop-img img {
+  object-fit: cover;
+  height: 300px;
+}
+
+.love {
+  position: absolute;
+  color: red;
+  font-size: 30px;
+  animation: fall 2s linear forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+html, body {
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
