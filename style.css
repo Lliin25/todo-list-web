@@ -1,60 +1,266 @@
+/* General Styles */
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #fcd1f8;
   font-family: Arial, sans-serif;
-  cursor: pointer;
-  overflow-x: hidden;
+  background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef);
+  min-height: 100vh;
 }
 
+/* Banner Section */
 .banner {
-  background: url("img/laut.jpg") no-repeat center center;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('img/laut.jpg');
   background-size: cover;
-  padding-top: 20%;
-  padding-bottom: 20%;
-  color: rgb(247, 172, 245);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Lingkaran Icons */
 .lingkaran {
-  display: inline-block;
-  border-radius: 50%;
   width: 100px;
   height: 100px;
-  line-height: 100px;
-  background-color: blanchedalmond;
-  color: rgb(109, 109, 27);
-  position: relative;
-  top: 30px;
+  background: linear-gradient(45deg, #ff9a9e, #fecfef);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
-.crop-img img {
+/* Cards Section */
+.cards-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 50px 20px;
+  justify-content: center;
+}
+
+.card {
+  width: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card-img {
+  width: 100%;
+  height: 200px;
   object-fit: cover;
-  height: 300px;
 }
 
+.card-body {
+  padding: 15px;
+  background: white;
+}
+
+/* Love Animation */
 .love {
-  position: absolute;
-  color: red;
-  font-size: 30px;
-  animation: fall 2s linear forwards;
   pointer-events: none;
-  z-index: 9999;
+  animation: love-float 2s ease-out forwards;
 }
 
-@keyframes fall {
+@keyframes love-float {
   0% {
+    opacity: 1;
     transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0.5);
+  }
+}
+
+/* Flower Styles */
+.flower-container {
+  position: relative;
+  display: inline-block;
+}
+
+.flower {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  animation: bloom 3s ease-in-out infinite alternate;
+}
+
+.flower-left-1 {
+  top: 50px;
+  left: -80px;
+  animation-delay: 0s;
+}
+
+.flower-left-2 {
+  top: 150px;
+  left: -100px;
+  animation-delay: 0.5s;
+}
+
+.flower-left-3 {
+  top: 250px;
+  left: -60px;
+  animation-delay: 1s;
+}
+
+.flower-right-1 {
+  top: 30px;
+  right: -90px;
+  animation-delay: 1.5s;
+}
+
+.flower-right-2 {
+  top: 130px;
+  right: -70px;
+  animation-delay: 2s;
+}
+
+.flower-right-3 {
+  top: 230px;
+  right: -110px;
+  animation-delay: 2.5s;
+}
+
+.petal {
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform-origin: bottom center;
+}
+
+.petal:nth-child(1) {
+  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  top: 0;
+  left: 20px;
+  transform: rotate(0deg);
+}
+
+.petal:nth-child(2) {
+  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  top: 8px;
+  left: 35px;
+  transform: rotate(60deg);
+}
+
+.petal:nth-child(3) {
+  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  top: 25px;
+  left: 35px;
+  transform: rotate(120deg);
+}
+
+.petal:nth-child(4) {
+  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  top: 30px;
+  left: 20px;
+  transform: rotate(180deg);
+}
+
+.petal:nth-child(5) {
+  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  top: 25px;
+  left: 5px;
+  transform: rotate(240deg);
+}
+
+.petal:nth-child(6) {
+  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  top: 8px;
+  left: 5px;
+  transform: rotate(300deg);
+}
+
+.flower-center {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #ffd700, #ffb347);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+@keyframes bloom {
+  0% {
+    transform: scale(0.8) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1) rotate(10deg);
     opacity: 1;
   }
   100% {
-    transform: translateY(100px) scale(1.5);
+    transform: scale(1) rotate(-5deg);
+    opacity: 0.9;
+  }
+}
+
+/* Floating petals animation */
+.floating-petal {
+  position: absolute;
+  width: 12px;
+  height: 16px;
+  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  opacity: 0.7;
+  animation: float-down 4s linear infinite;
+}
+
+.floating-petal:nth-child(odd) {
+  animation-duration: 5s;
+  background: linear-gradient(45deg, #ffc0cb, #ff69b4);
+}
+
+@keyframes float-down {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(400px) rotate(360deg);
     opacity: 0;
   }
 }
 
-html, body {
-  height: auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: relative;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .flower {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .flower-left-1, .flower-left-2, .flower-left-3 {
+    left: -40px;
+  }
+  
+  .flower-right-1, .flower-right-2, .flower-right-3 {
+    right: -40px;
+  }
+  
+  .petal {
+    width: 12px;
+    height: 18px;
+  }
+  
+  .flower-center {
+    width: 12px;
+    height: 12px;
+    top: 14px;
+    left: 14px;
+  }
 }
